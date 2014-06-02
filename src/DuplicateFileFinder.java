@@ -11,12 +11,12 @@ import javax.swing.*;
 public class DuplicateFileFinder extends JPanel
                              implements ActionListener {
 	private JList list1;
-    private DefaultListModel listModel;
+	private DefaultListModel listModel;
 	private static final long serialVersionUID = 1L;
 	static private final String newline = "\n";
-    JButton browsebutton;
-    JTextArea log;
-    JFileChooser fc;
+    	JButton browsebutton;
+    	JTextArea log;
+    	JFileChooser fc;
     
     public DuplicateFileFinder() {
         super(new BorderLayout());
@@ -92,12 +92,11 @@ public class DuplicateFileFinder extends JPanel
             	            String str = listModel.getElementAt(index).toString();
             	            
             	            	if(new File(str)!=null)
-									try {
-										Desktop.getDesktop().open(new File(str).getParentFile());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										//e.printStackTrace();
-									}
+					try {
+						Desktop.getDesktop().open(new File(str).getParentFile());
+					} catch (Exception e) {
+						// Should not generate an exception!
+					}
             	        } else if (evt.getClickCount() == 3) {   // Triple-click
             	            int index = list.locationToIndex(evt.getPoint());
             	            System.out.println(index);
